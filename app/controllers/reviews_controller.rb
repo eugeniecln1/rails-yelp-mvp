@@ -16,6 +16,11 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def show
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @reviews = Review.where(restaurant_id: @restaurant.id)
+  end
+
   private
 
   def review_params
